@@ -42,3 +42,13 @@ h1{
   height:80px;
   line-height: 80px;
 }
+
+.map{
+  text-align: center;
+  }
+  
+  #test > path {
+  fill: pink;
+  stroke: #ff0000;
+  stroke-width: 1;
+  }
