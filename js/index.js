@@ -39,12 +39,14 @@ $(function() {
    */
 });
 
+
 function displayImages(count, image) {  
   var paragraph = document.getElementById('images');
   for (var i = 0; count < 3; i++) {
       paragraph.innerHTML += "<img src=\' + image + \'>";
   }
 }
+
 function displayQuestionAndAnswer(question, answer) {
   $("#results-area").text("True or false?");
   $("#question-display").text(question);

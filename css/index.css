@@ -25,13 +25,16 @@ h1{
 }
 
 #sheep{
-  width: 100px;
   background-image: url('../sheep.png');
+  width: 500px;
   background-repeat: repeat-x;
-  height: 100px;
-  /* float: right; */
+  height: 80px; 
+  display: inline-block;
+  /* float: right;  */
 }
 
 #person{
-  /* float: left; */
+  display: inline-block;
+  font-size: 1em;
 }
+
