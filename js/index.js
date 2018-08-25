@@ -7,18 +7,18 @@
 
 var num_humans, num_sheep;
 
-fetch("/humans").then((data) => data.json()).then((data) => { 
+fetch("/humans/Total New Zealand").then((data) => data.json()).then((data) => { 
   num_humans = data;
   document.getElementById('num_humans').innerHTML = format_num(data); 
 }).then(() => {
-  fetch("/sheep").then((data) => data.json()).then((data) => { 
+  fetch("/sheep/Total New Zealand").then((data) => data.json()).then((data) => { 
     num_sheep = data;
     document.getElementById('num_sheep').innerHTML = format_num(data); 
   }).then(() => {
     var ratio = num_sheep / num_humans;
     document.getElementById('ratio').innerHTML = ratio.toFixed(1); 
     document.getElementById('sheep').style.width = (ratio.toFixed(1) * 100).toString() + "px"; 
-
+    document.getElementById('region').innerHTML = "New Zealand";
   });
 });
 

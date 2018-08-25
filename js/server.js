@@ -4,23 +4,23 @@ const servestatic = require('serve-static');
 
 app.use(servestatic("."));
 
-app.get('/sheep', (req, res) => getSheep().then((data) => {
+app.get('/sheep/:region', (req, res) => getSheep(req.params.region).then((data) => {
   res.send(data); 
 }));
 
-app.get('/humans', (req, res) => getPopulation().then((data) => {
+app.get('/humans/:region', (req, res) => getPopulation(req.params.region).then((data) => {
   res.send(data); 
 }));
 
 app.listen(3001, () => console.log('Example app listening on port 3001!'))
 
-function getSheep() {
+function getSheep(region) {
     var csv = require("csv-query");
     var numbers;
     var promise = new Promise((resolve, reject) => { csv.createFromFile(
         "livestock-data.csv"
       ).then(function (db) {
-        numbers = db.find( { Livestock: 'Total sheep' } );
+        numbers = db.find( { Livestock: 'Total sheep', Area: region } );
         numbers = numbers.value();
         population = numbers[numbers.length-1];
         resolve(population.Value);
@@ -34,21 +34,37 @@ function getSheep() {
     return promise;
   }
 
-  function getPopulation() {
+  function getPopulation(region) {
     var csv = require("csv-query");
     var numbers;
-    var promise = new Promise((resolve, reject) => { csv.createFromFile(
-        "national-population-estimates.csv"
-      ).then(function (db) {
-        numbers = db.find();
-        numbers = numbers.value();
-        population = numbers[numbers.length-1];
-        resolve(population.population);
-      }).then(function (record) {
-        // Do some stuff
-      }).catch(function (error) {
-        throw error;
-    })}).catch(function (error) {
+    var promise = new Promise((resolve, reject) => { 
+      
+      switch(region) {
+        case "Total New Zealand": 
+          csv.createFromFile(
+            "national-population-estimates.csv"
+          ).then(function (db) {
+            numbers = db.find();
+            numbers = numbers.value();
+            population = numbers[numbers.length-1];
+            resolve(population.population);
+          }).catch(function (error) {
+            throw error;
+          })
+          break;
+        default:
+          csv.createFromFile(
+            "population-by-region.csv"
+          ).then(function (db) {
+            numbers = db.find({ Region: region });
+            numbers = numbers.value();
+            population = numbers[numbers.length-1];
+            resolve(population.Population);
+          }).catch(function (error) {
+            throw error;
+          })
+      }
+    }).catch(function (error) {
       throw error;
     });
     return promise;
