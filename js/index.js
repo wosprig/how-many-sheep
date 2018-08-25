@@ -17,6 +17,8 @@ fetch("/humans").then((data) => data.json()).then((data) => {
   }).then(() => {
     var ratio = num_sheep / num_humans;
     document.getElementById('ratio').innerHTML = ratio.toFixed(1); 
+    document.getElementById('sheep').style.width = (ratio.toFixed(1) * 100).toString() + "px"; 
+
   });
 });
 

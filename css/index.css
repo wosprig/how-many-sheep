@@ -30,7 +30,6 @@ h1{
 }
 
 #sheep{
-  width: 560px;
   background-image: url('sheep.png');
   background-repeat: repeat-x;
   height: 80px; 
