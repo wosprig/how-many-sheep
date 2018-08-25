@@ -37,8 +37,24 @@ h1{
 }
 
 #person{
+
+  /* float: left; */
+}
+
+.map{
+  padding-left:50%;
+  padding-right: 50%;
+  text-align: center;
+  }
+  
+  #test > path:hover {
+  fill: pink;
+  stroke: #ff0000;
+  stroke-width: 1;
+  }
+
   display: inline-block;
   font: 80px Futura;
   height:80px;
   line-height: 80px;
-}
+
