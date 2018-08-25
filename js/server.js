@@ -42,7 +42,6 @@ function getSheep() {
       ).then(function (db) {
         numbers = db.find();
         numbers = numbers.value();
-        console.log(numbers);
         population = numbers[numbers.length-1];
         resolve(population.population);
       }).then(function (record) {
