@@ -15,24 +15,25 @@ app.get('/humans/:region', (req, res) => getPopulation(req.params.region).then((
 app.listen(3001, () => console.log('Example app listening on port 3001!'))
 
 function getSheep(region) {
-    var csv = require("csv-query");
-    var numbers;
-    var promise = new Promise((resolve, reject) => { csv.createFromFile(
-        "livestock-data.csv"
-      ).then(function (db) {
-        numbers = db.find( { Livestock: 'Total sheep', Area: region } );
-        numbers = numbers.value();
-        population = numbers[numbers.length-1];
-        resolve(population.Value);
-      }).then(function (record) {
-        // Do some stuff
-      }).catch(function (error) {
-        throw error;
-    })}).catch(function (error) {
-      throw error;
-    });
-    return promise;
+  if(region == "New Zealand") {
+    region = "Total New Zealand";
   }
+  var csv = require("csv-query");
+  var numbers;
+  var promise = new Promise((resolve, reject) => { csv.createFromFile(
+      "livestock-data.csv"
+    ).then(function (db) {
+      numbers = db.find( { Livestock: 'Total sheep', Area: region } );
+      numbers = numbers.value();
+      population = numbers[numbers.length-1];
+      resolve(population.Value);
+    }).catch(function (error) {
+      throw error;
+  })}).catch(function (error) {
+    throw error;
+  });
+  return promise;
+}
 
   function getPopulation(region) {
     var csv = require("csv-query");
@@ -40,7 +41,7 @@ function getSheep(region) {
     var promise = new Promise((resolve, reject) => { 
       
       switch(region) {
-        case "Total New Zealand": 
+        case "New Zealand": 
           csv.createFromFile(
             "national-population-estimates.csv"
           ).then(function (db) {
