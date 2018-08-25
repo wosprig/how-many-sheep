@@ -4,7 +4,10 @@
  */
 
 // $(...) will run the function you give it when the page is loaded & ready
+fetch("/humans").then((data) => data.json()).then((data) => { document.getElementById('num_humans').innerHTML = format_num(data); });
 fetch("/sheep").then((data) => data.json()).then((data) => { document.getElementById('num_sheep').innerHTML = format_num(data); });
+
+
 
 const format_num = (x) => {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -17,7 +20,7 @@ $(function() {
   //varimage = 
   
   var paragraph = document.getElementById('images');
-  for (var i = 0; count < 6; i++) {
+  for (var i = 0; i < 6; i++) {
       paragraph.innerHTML += "<img src='person.svg'>";
   }
   // console.log will log a message or object to the browser developer console
