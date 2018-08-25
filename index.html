@@ -8,10 +8,11 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
     <script src="https://d3js.org/d3.v5.min.js"></script>
+    
 
     <!-- Load our files -->
     <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript" src="js/query.js"></script>
+    <script type="text/javascript" src="js/server.js"></script>
     <link rel="stylesheet" type="text/css" href="css/index.css">
   </head>
 
@@ -28,10 +29,9 @@
     </div>
     <div id="sheep">
     </div>
-    <br><br>
-    <b><span style="font-size:30px">There are 5.6 sheep for every person in New Zealand </span></b>
-    <p>27,526,537 Sheep!</p>
-    <p>4,885,300 People!</p>
+<b><span style="font-size:30px">There are 5.6 sheep for every person in New Zealand </span></b>
+<p><span id="num_sheep"></span> Sheep!</p>
+    <p><span id="num_humans"></span> People!</p>
   </div>
 
   Region: <select>

@@ -1,11 +1,20 @@
-const express = require('express')
-const app = express()
+const express = require('express');
+const app = express();
+const servestatic = require('serve-static');
 
-app.get('/sheep', (req, res) => processData().then((data) => res.send(data)));
+app.use(servestatic("."));
 
-app.listen(3000, () => console.log('Example app listening on port 3000!'))
+app.get('/sheep', (req, res) => getSheep().then((data) => {
+  res.send(data); 
+}));
 
-function processData() {
+app.get('/humans', (req, res) => getPopulation().then((data) => {
+  res.send(data); 
+}));
+
+app.listen(3001, () => console.log('Example app listening on port 3001!'))
+
+function getSheep() {
     var csv = require("csv-query");
     var numbers;
     var promise = new Promise((resolve, reject) => { csv.createFromFile(
@@ -24,3 +33,25 @@ function processData() {
     });
     return promise;
   }
+
+  function getPopulation() {
+    var csv = require("csv-query");
+    var numbers;
+    var promise = new Promise((resolve, reject) => { csv.createFromFile(
+        "national-population-estimates.csv"
+      ).then(function (db) {
+        numbers = db.find();
+        numbers = numbers.value();
+        console.log(numbers);
+        population = numbers[numbers.length-1];
+        resolve(population.population);
+      }).then(function (record) {
+        // Do some stuff
+      }).catch(function (error) {
+        throw error;
+    })}).catch(function (error) {
+      throw error;
+    });
+    return promise;
+  }
+
