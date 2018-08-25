@@ -8,6 +8,11 @@
   background-color: #000;
 }
 
+body, select{
+  font:20px Arial;
+  text-align:center;
+}
+
 #answer-display:hover {
   color: #fff;
 }
@@ -25,16 +30,16 @@ h1{
 }
 
 #sheep{
-  width: 500px;
+  width: 560px;
   background-image: url('sheep.png');
   background-repeat: repeat-x;
   height: 80px; 
   display: inline-block;
-  /* float: right;  */
 }
 
 #person{
   display: inline-block;
-  font-size: 1em;
+  font: 80px Futura;
+  height:80px;
+  line-height: 80px;
 }
-
