@@ -8,32 +8,33 @@
     <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 
     <script src="https://d3js.org/d3.v5.min.js"></script>
+    
 
     <!-- Load our files -->
     <script type="text/javascript" src="js/index.js"></script>
-    <script type="text/javascript" src="js/query.js"></script>
+    <script type="text/javascript" src="js/server.js"></script>
     <link rel="stylesheet" type="text/css" href="css/index.css">
   </head>
 
   <body>
-    <!-- TODO: Say something interesting in the heading tag... -->
-  <div class="header"></div>
-      <h1>How Many Sheep</h1>
+    <!-- TODO: Say something interesting in the heading tag... --><br><br>
+  <div class="header">
+      <img src = "sheep logo cropped.png">
   </div>
-
+<br>
   <div class="content">
     <div id="person">
-        <p><span id="injected">
-        </span></p>
-    </div>
-    <div id="person">
-      <img src="man icon.png"> 
+      <img src="man icon.png">
+      :
     </div>
     <div id="sheep">
     </div>
-    <p>1,000,000 Sheep!</p>
-    <p>4,000,000 People!</p>
+<br/>
+<b><span style="font-size:30px">There are <span id="ratio"></span> sheep for every person in New Zealand </span></b>
+<p><span id="num_sheep"></span> Sheep!</p>
+    <p><span id="num_humans"></span> People!</p>
   </div>
+
 
   <br>
   <div class="map">
@@ -91,5 +92,15 @@
   </a>
   </svg>
   </div>
+
+  Region: <select>
+    <option value="volvo">Auckland</option>
+    <option value="saab">Wellington</option>
+    <option value="mercedes">Christchurch</option>
+    <option value="audi">Dunedin</option>
+  </select>
+  
+  
+
   </body>
   </html>
