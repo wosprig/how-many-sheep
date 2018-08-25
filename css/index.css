@@ -25,8 +25,8 @@ h1{
 }
 
 #sheep{
+  background-image: url('../sheep.png');
   width: 500px;
-  background-image: url('sheep.png');
   background-repeat: repeat-x;
   height: 80px; 
   display: inline-block;
