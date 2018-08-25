@@ -29,10 +29,11 @@ h1{
   text-align: center;
 }
 
-#sheep{
+.sheep{
   background-image: url('sheep.png');
-  background-repeat: repeat-x;
+  background-repeat: none;
   height: 80px; 
+  width:100px;
   display: inline-block;
 }
 
