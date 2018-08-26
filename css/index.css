@@ -54,8 +54,8 @@ h1{
   }
   
   #test > path:hover {
-  fill: pink;
-  stroke: #ff0000;
+  fill: lightblue;
+  stroke: blue;
   stroke-width: 1;
   }
 
@@ -66,4 +66,28 @@ h1{
     padding: 3px;
     margin: 1px;
     color: white;
+  }
+
+  .ratio-1 {
+    fill: hsl(0, 100%, 90%);
+  }
+
+  .ratio-2 {
+    fill: hsl(0, 100%, 80%);
+  }
+
+  .ratio-3 {
+    fill: hsl(0, 100%, 70%);
+  }
+
+  .ratio-4 {
+    fill: hsl(0, 100%, 60%);
+  }
+
+  .ratio-5 {
+    fill: hsl(0, 100%, 50%);
+  }
+
+  .ratio-6 {
+    fill: hsl(0, 100%, 40%);
   }
