@@ -24,7 +24,7 @@ $(function() {
   onload();
   setTimeout(function(){
     setmapcolors(); 
-  }, 1000);
+  }, 2000);
   
 })
 
@@ -102,6 +102,7 @@ function setmapcolors() {
       maps[i].classList.add('ratio-6');
     }
   }
+  console.log(ratios);
 }
 
 
