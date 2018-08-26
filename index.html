@@ -104,14 +104,19 @@
     <option value="audi">Dunedin</option>
   </select>
   
-  <form action="">
-    <input type="radio" name="2001" value="2001"> 2001
-    <input type="radio" name="2006" value="2006"> 2006
-    <input type="radio" name="2013" value="2013"> 2013
-  </form>
-  
+  <br>
+  <div class="slider_year">
 
-  
+    Select a year to view data: 
+    <input type="button" value="2013">
+    <input type="button" value="2006">
+    <input type="button" value="2001">
 
+
+    <!-- <input type="range" min="2001" max="2013" value="2013" step="5" onchange="updateTextInput(this.value);">
+    <br>
+    <input type="text" id="textInput" value="2013"> -->
+  </div>
+  
   </body>
   </html>

@@ -12,6 +12,8 @@ app.get('/humans/:region', (req, res) => getPopulation(req.params.region).then((
   res.send(data); 
 }));
 
+app.get('')
+
 app.listen(3001, () => console.log('Example app listening on port 3001!'))
 
 function getSheep(region) {

@@ -9,6 +9,10 @@ var num_humans, num_sheep;
 
 loadpage("Auckland");
 
+function updateTextInput(val) {
+  document.getElementById('textInput').value=val; 
+}
+
 function loadpage(region) {
   fetch("/humans/" + region).then((data) => data.json()).then((data) => { 
     num_humans = data;
