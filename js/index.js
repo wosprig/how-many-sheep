@@ -28,6 +28,10 @@ $(function() {
   
 })
 
+function updateTextInput(val) {
+  document.getElementById('textInput').value=val; 
+}
+
 function loadpage(region) {
   var num_humans, num_sheep;
   fetch("/humans/" + region).then((data) => data.json()).then((data) => { 
