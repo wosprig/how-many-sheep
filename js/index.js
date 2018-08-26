@@ -21,6 +21,8 @@ function loadpage(region) {
       var ratio = num_sheep / num_humans;
       document.getElementById('ratio').innerHTML = ratio.toFixed(1); 
       document.getElementById('region').innerHTML = region;
+      document.getElementById('sheep').innerHTML = "";
+
 
       while(ratio >= 1) {
         var temp, item, a;
@@ -46,21 +48,3 @@ function loadpage(region) {
 const format_num = (x) => {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
-
-$(function() {
-
-  var imageCountPeople = 1;
-  var imageCountSheep = 6;
-  //varimage = 
-  
-  var paragraph = document.getElementById('images');
-  for (var i = 0; i < 6; i++) {
-      paragraph.innerHTML += "<img src='person.svg'>";
-  }
-  // console.log will log a message or object to the browser developer console
-  
-  
-  document.getElementById('injected').innerHTML = "I INJECTED THIS";
-  
-  console.log("page loaded...");
-});
