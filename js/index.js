@@ -1,5 +1,3 @@
-var num_humans, num_sheep;
-
 var regionnames = ["Chatham Islands",
   "West Coast",
   "Marlborough",
@@ -31,6 +29,7 @@ $(function() {
 })
 
 function loadpage(region) {
+  var num_humans, num_sheep;
   fetch("/humans/" + region).then((data) => data.json()).then((data) => { 
     num_humans = data;
     document.getElementById('num_humans').innerHTML = format_num(data); 
@@ -78,23 +77,27 @@ function setmapcolors() {
 
   for(var i = 0; i < maps.length; i++) {
     var region = maps[i].dataset.title;
-    console.log(ratios);
 
     if(ratios[region] < 2) {
       maps[i].classList.add('ratio-1');
     }
+
     if(ratios[region] <= 5 && ratios[region] >= 2) {
       maps[i].classList.add('ratio-2');
     }
+
     if(ratios[region] <= 11 && ratios[region] > 5) {
       maps[i].classList.add('ratio-3');
     }
+
     if(ratios[region] <= 23 && ratios[region] > 11) {
       maps[i].classList.add('ratio-4');
     }
+
     if(ratios[region] <= 42 && ratios[region] > 23) {
       maps[i].classList.add('ratio-5');
     }
+
     if(ratios[region] > 42) {
       maps[i].classList.add('ratio-6');
     }
