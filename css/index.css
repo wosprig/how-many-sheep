@@ -19,6 +19,7 @@ body, select{
 
 .header{
   text-align: center;
+  margin-left: -15%;
 }
 
 .content{
@@ -26,6 +27,7 @@ body, select{
 }
 
 h1{
+  margin-left: -5%;
   text-align: center;
 }
 
@@ -48,6 +50,7 @@ h1{
   padding-left:50%;
   padding-right: 50%;
   text-align: center;
+  margin-top: -25%;
   }
   
   #test > path:hover {
